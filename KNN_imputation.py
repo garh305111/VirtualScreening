@@ -5,12 +5,18 @@ from numpy import dot
 from numpy.linalg import norm
 from sklearn.decomposition import PCA
 
+
 def check_isna(name):
     return df[name].isna().any()
+
+
 def check_isame(name):
     return len(df[name].drop_duplicates()) == 1
+
+
 def check_for_infinity_or_large_values(name):
     return np.isinf(df[name]).any() or (df[name] > np.finfo(np.float64).max).any()
+
 
 def intersection_cols(df):
     intersection_columns = []
@@ -36,8 +42,11 @@ def add_missing(df, col, nums):
 
 def euclidian_dist(x, y):
     return np.linalg.norm(x - y, axis=0)
+
+
 def cosin_dist(x, y):
     return dot(x, y)/(norm(x)*norm(y))
+
 
 class PCA_dist_matrix(PCA):
     def __init__(self, df, threshold):
@@ -50,6 +59,7 @@ class PCA_dist_matrix(PCA):
         pca.fit(self.df)
         df_idx = np.where(pca.explained_variance_ratio_>self.threshold)
         return self.df.iloc[:, df_idx[0]]
+
 
 class KNN_DataFill:
     def __init__(
