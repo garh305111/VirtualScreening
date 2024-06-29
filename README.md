@@ -4,7 +4,7 @@ This repository contains Python scripts for ML based preprocessing for virtual s
 
 ## Standard.py
 
-This script provides functions for standardization, scaling, feature selection, and PCA preprocessing techniques.
+Standardize.py provides functions for standardization, scaling, feature selection, and PCA preprocessing techniques.
 
 ### Functions Provided:
 
